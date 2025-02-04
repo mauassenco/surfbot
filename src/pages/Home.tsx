@@ -1,11 +1,12 @@
-import React from 'react';
+import Hero from '../components/Hero';
+import Aulas from '../components/Aulas';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Escola de Surf</h1>
-      <h2 className="fonte-nunito">Fonte Nunito</h2>
-    </div>
+    <>
+      <Hero />
+      <Aulas />
+    </>
   );
 };
 
