@@ -5,7 +5,6 @@ export const Header = styled.header`
 `;
 
 export const UpperBar = styled.div`
-  font-size: 1rem;
   font-weight: semibold;
   background: ${({ theme }) => theme.colors.blue200};
   color: ${({ theme }) => theme.colors.primary};
@@ -37,7 +36,6 @@ export const MenuContainer = styled.ul`
 `;
 export const MenuItem = styled.li`
   position: relative;
-  /* padding: 10px; */
   padding: 0 16px;
 
   &:not(:last-child)::after {
@@ -49,13 +47,17 @@ export const MenuItem = styled.li`
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    /* background-color: white; */
-    border: 2px solid white;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
   }
+
   &:last-child {
     border-bottom: 2px solid ${({ theme }) => theme.colors.red200};
     padding: 0;
     margin-left: 16px;
+  }
+
+  &:last-child:hover {
+    border-bottom: 2px solid ${({ theme }) => theme.colors.red100};
   }
 
   a {

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import Logo from '../../assets/images/surfbot-logo.svg';
 
 // Styles
 import * as Styles from './styles';
@@ -14,7 +15,9 @@ const Header = () => {
         </Styles.UpperBar>
       )}
       <Styles.NavBar>
-        <img src="/surfbot-logo.svg" alt="surfbot logo" />
+        <Link to="/">
+          <img src={Logo} alt="surfbot logo" />
+        </Link>
         <Styles.MenuContainer>
           <Styles.MenuItem>
             <Link to="/">Praia</Link>

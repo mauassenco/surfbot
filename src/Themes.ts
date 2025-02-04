@@ -24,8 +24,13 @@ const Theme = {
     sm: '0.875rem', // 14px
     md: '1.125rem', // 18px
     lg: '1.5rem', // 24px
-    xl: '1.4rem', // 20px
-    xxl: '4.8rem', // 72px
+    xxl: '4.5rem', // 72px
+  },
+  radius: {
+    sm: '5px',
+  },
+  images: {
+    hero: '../assets/images/bg-hero-2.jpg',
   },
   mobile: '768px',
 };
