@@ -32,7 +32,12 @@ const Theme = {
   images: {
     hero: '../assets/images/bg-hero-2.jpg',
   },
-  mobile: '768px',
+  breakpoints: {
+    small: '480px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1440px',
+  },
 };
 
 export default Theme;

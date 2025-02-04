@@ -1,5 +1,7 @@
-import styled from 'styled-components';
 import BgHero from '../../assets/images/bg-hero-2.webp';
+
+import styled from 'styled-components';
+
 export const Hero = styled.section`
   height: 400px;
   background-image: url(${BgHero});
