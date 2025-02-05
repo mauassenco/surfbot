@@ -112,5 +112,3 @@ export const ContainerLeftInfo = styled.div`
     border: 2px solid ${({ theme }) => theme.colors.blue200};
   }
 `;
-
-export const ContainerLeftInfoItem = styled.div``;

@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import Matricula from './pages/Matricula';
 
 import Header from './components/Header';
-import Hero from './components/Hero';
 
 function App() {
   return (
