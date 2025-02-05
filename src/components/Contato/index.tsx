@@ -53,7 +53,7 @@ const Contato = () => {
               <p>Das 06:00 às 14:00</p>
             </Styles.InfoItem>
           </Styles.InfoItems>
-          <img src={ContatoSideBG} alt="" />
+          <Styles.ContatoSideImage src={ContatoSideBG} alt="Sol, picole, boia, chinelos e coco" />
         </Styles.ContatoInfo>
       </Styles.ContatoContainer>
     </Styles.Contato>

@@ -87,11 +87,11 @@ export const ContatoInfo = styled.div`
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 600;
   width: 29.3rem;
+`;
 
-  img {
-    max-height: 336px;
-    margin-top: -2rem;
-  }
+export const ContatoSideImage = styled.img`
+  max-height: 336px;
+  margin-top: -2rem;
 `;
 
 export const InfoItems = styled.div`
