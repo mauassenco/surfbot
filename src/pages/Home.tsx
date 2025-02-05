@@ -1,4 +1,5 @@
 import Aulas from '../components/Aulas';
+import Contato from '../components/Contato';
 import Hero from '../components/Hero';
 import Infos from '../components/Infos';
 import Quote from '../components/Quote';
@@ -10,6 +11,7 @@ const Home = () => {
       <Infos />
       <Aulas />
       <Quote />
+      <Contato />
     </>
   );
 };
