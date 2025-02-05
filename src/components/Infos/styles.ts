@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Aulas = styled.section`
+export const Infos = styled.section`
   display: flex;
   justify-content: space-between;
   padding: 2.813rem;

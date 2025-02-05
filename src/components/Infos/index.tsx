@@ -1,5 +1,5 @@
-import BgAulas from '../../assets/images/foto-galeria.webp';
-import MapaAulas from '../../assets/images/mapa.webp';
+import BgInfos from '../../assets/images/foto-galeria.webp';
+import MapaInfos from '../../assets/images/mapa.webp';
 import FlipFlop from '../../assets/images/sandalhas.svg';
 import Coconut from '../../assets/images/coco.svg';
 import Buoy from '../../assets/images/boia.svg';
@@ -7,13 +7,13 @@ import Buoy from '../../assets/images/boia.svg';
 // Styles
 import * as Styles from './styles';
 
-const Aulas = () => {
+const Infos = () => {
   return (
-    <Styles.Aulas>
+    <Styles.Infos>
       <Styles.ContainerLeft>
-        <img src={BgAulas} alt="uma casa com pranchas a sua frente" />
+        <img src={BgInfos} alt="uma casa com pranchas a sua frente" />
         <div>
-          <img src={MapaAulas} alt="mapa" />
+          <img src={MapaInfos} alt="mapa" />
         </div>
         <Styles.ContainerLeftInfo>
           <h2>Como chegar</h2>
@@ -60,8 +60,8 @@ const Aulas = () => {
           </p>
         </Styles.ContainerRightInfo>
       </Styles.ContainerRight>
-    </Styles.Aulas>
+    </Styles.Infos>
   );
 };
 
-export default Aulas;
+export default Infos;
