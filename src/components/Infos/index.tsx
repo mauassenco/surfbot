@@ -9,7 +9,7 @@ import * as Styles from './styles';
 
 const Infos = () => {
   return (
-    <Styles.Infos>
+    <Styles.Infos id="infos">
       <Styles.ContainerLeft>
         <img src={BgInfos} alt="uma casa com pranchas a sua frente" />
         <div>

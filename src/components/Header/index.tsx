@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Logo from '../../assets/images/surfbot-logo.svg';
 
 // Styles
@@ -20,13 +21,19 @@ const Header = () => {
         </Link>
         <Styles.MenuContainer>
           <Styles.MenuItem>
-            <Link to="/">Praia</Link>
+            <HashLink smooth to="#infos">
+              Praia
+            </HashLink>
           </Styles.MenuItem>
           <Styles.MenuItem>
-            <Link to="/">Aulas</Link>
+            <HashLink smooth to="#aulas">
+              Aulas
+            </HashLink>
           </Styles.MenuItem>
           <Styles.MenuItem>
-            <Link to="/">Contato</Link>
+            <HashLink smooth to="#contato">
+              Contato
+            </HashLink>
           </Styles.MenuItem>
           <Styles.MenuItem>
             <Link to="/matricula">Matricule-se</Link>
