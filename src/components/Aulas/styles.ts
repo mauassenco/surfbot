@@ -4,7 +4,7 @@ export const Aulas = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2.813rem;
+  padding: 2.813rem 0 3.4rem;
   background-color: ${({ theme }) => theme.colors.light100};
 `;
 
