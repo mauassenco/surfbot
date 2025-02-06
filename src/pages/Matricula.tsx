@@ -1,7 +1,13 @@
-import React from 'react';
+import Banner from '../components/Banner';
+import FormMatricula from '../components/FormMatricula';
 
 const Matricula = () => {
-  return <div>Matricula</div>;
+  return (
+    <>
+      <Banner />
+      <FormMatricula />
+    </>
+  );
 };
 
 export default Matricula;
