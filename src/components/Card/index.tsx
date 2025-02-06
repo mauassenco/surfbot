@@ -1,31 +1,37 @@
 import { Link } from 'react-router-dom';
+import { CardsProps } from './types';
 import Surfboard from '../../assets/images/surfbot-icon.svg';
 import RightArrowWhite from '../../assets/images/right-arrow-white.svg';
 
 // Styles
 import * as Styles from './styles';
 
-const Card = () => {
+const Card = ({ card }: CardsProps) => {
   return (
     <Styles.Card>
       <Styles.CardHeader>
         <Styles.CardIcon>
-          <img src={Surfboard} alt="surfboard" />
+          {Array(card.boards)
+            .fill(null)
+            .map((_, index) => (
+              <img key={index} src={Surfboard} alt="surfboard" />
+            ))}
         </Styles.CardIcon>
-        <Styles.CardTitle>Infantil</Styles.CardTitle>
+        <Styles.CardTitle>{card.title}</Styles.CardTitle>
       </Styles.CardHeader>
       <Styles.CardBody>
-        <p>Público entre 5 e 15 anos</p>
-        <p>Equipamentos fornecidos</p>
-        <p>Horários de Sex. à Sab.</p>
-        <p>2 horas seguidas de aula</p>
+        {card.items.map((item) => (
+          <p key={item.description}>{item.description}</p>
+        ))}
       </Styles.CardBody>
       <Styles.CardFooter>
-        <p>R$ 49,00 / Aula</p>
-        <Link to="/matricula">
-          <p>Matricule-se</p>
-          <img src={RightArrowWhite} alt="" />
-        </Link>
+        <p>R$ {card.price},00 / Aula</p>
+        {card.showButton && (
+          <Link to="/matricula">
+            <p>Matricule-se</p>
+            <img src={RightArrowWhite} alt="um flecha para a direita" />
+          </Link>
+        )}
       </Styles.CardFooter>
     </Styles.Card>
   );

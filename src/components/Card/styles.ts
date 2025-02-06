@@ -6,10 +6,10 @@ export const Card = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: ${({ theme }) => theme.radius.sm};
   width: 370px;
-  height: 414px;
+  height: fit-content;
   box-shadow: 0px 5px 5px rgba(23, 24, 45, 0.4);
   position: relative;
-  padding: 0 68px;
+  padding: 1.875rem 4rem;
 `;
 
 export const CardIcon = styled.div`
@@ -46,6 +46,7 @@ export const CardBody = styled.div`
     font-size: ${({ theme }) => theme.sizes.sm};
     font-family: ${({ theme }) => theme.fonts.secondary};
     font-weight: 300;
+    width: max-content;
   }
   p::before {
     content: '';

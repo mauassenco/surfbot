@@ -42,4 +42,9 @@ export const AulasFooter = styled.div`
   p:last-of-type span {
     border-bottom: 2px solid ${({ theme }) => theme.colors.red100};
   }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.dark200};
+  }
 `;

@@ -21,17 +21,17 @@ const Header = () => {
         </Link>
         <Styles.MenuContainer>
           <Styles.MenuItem>
-            <HashLink smooth to="#infos">
+            <HashLink smooth to="/#infos">
               Praia
             </HashLink>
           </Styles.MenuItem>
           <Styles.MenuItem>
-            <HashLink smooth to="#aulas">
+            <HashLink smooth to="/#aulas">
               Aulas
             </HashLink>
           </Styles.MenuItem>
           <Styles.MenuItem>
-            <HashLink smooth to="#contato">
+            <HashLink smooth to="/#contato">
               Contato
             </HashLink>
           </Styles.MenuItem>
