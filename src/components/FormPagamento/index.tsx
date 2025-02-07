@@ -1,41 +1,32 @@
-import { useState } from 'react';
 import CustomInput from '../CustomInput';
-import RadioChecked from '../../assets/images/ellipse-active.svg';
-import RadioUnChecked from '../../assets/images/ellipse.svg';
 
+import usePaymentStore from '../../store/payment';
 // Styles
 import * as Styles from './styles';
+import { Field } from 'formik';
 
 const FormPagamento = () => {
-  const [paymentMethod, setPaymentMethod] = useState('cartao');
-
-  const togglePayment = (payment_method: string) => {
-    setPaymentMethod(payment_method);
-  };
+  const { setPagamento, pagamento } = usePaymentStore();
 
   return (
     <Styles.PaymentSection>
       <h3>Forma de Pagamento</h3>
       <div className="container">
         <Styles.Tabs>
-          <div
-            className={paymentMethod === 'cartao' ? 'tabs active-tab' : 'tabs'}
-            onClick={() => togglePayment('cartao')}
-          >
-            <img src={paymentMethod === 'cartao' ? RadioChecked : RadioUnChecked} alt="" />
-            <p>Cartão de Crédito</p>
-          </div>
-          <div
-            className={paymentMethod === 'boleto' ? 'tabs active-tab' : 'tabs'}
-            onClick={() => togglePayment('boleto')}
-          >
-            <img src={paymentMethod === 'boleto' ? RadioChecked : RadioUnChecked} alt="" />
-            <p> Boleto Bancário</p>
+          <div role="group" aria-labelledby="my-radio-group-b" className="group">
+            <label className={pagamento === 'cartao' ? 'tabs active-tab' : 'tabs'}>
+              <Field type="radio" name="pagamento" value="cartao" onClick={() => setPagamento('cartao')} />
+              Cartão de Crádito
+            </label>
+            <label className={pagamento === 'boleto' ? 'tabs active-tab' : 'tabs'}>
+              <Field type="radio" name="pagamento" value="boleto" onClick={() => setPagamento('boleto')} />
+              Boleto Bancário
+            </label>
           </div>
         </Styles.Tabs>
 
         <div className="content-tabs">
-          <div className={paymentMethod === 'cartao' ? 'payment-content active-content' : 'payment-content'}>
+          <div className={pagamento === 'cartao' ? 'payment-content active-content' : 'payment-content'}>
             <Styles.DoubleInput>
               <CustomInput
                 type="text"
@@ -59,7 +50,7 @@ const FormPagamento = () => {
             </Styles.DoubleInput>
           </div>
 
-          <div className={paymentMethod === 'boleto' ? 'payment-content active-content' : 'payment-content'}>
+          <div className={pagamento === 'boleto' ? 'payment-content active-content' : 'payment-content'}>
             <div>
               <p>NUMERODO BOLETO</p>
               <p>CODIGO DO BOLETO</p>

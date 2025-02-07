@@ -1,45 +1,34 @@
-import { useState } from 'react';
+import usePaymentStore from '../../store/payment';
+import { Field } from 'formik';
 
-import RadioChecked from '../../assets/images/ellipse-active.svg';
-import RadioUnChecked from '../../assets/images/ellipse.svg';
-
-import cards from '../../data';
+import cards from '../../data/cards';
 import Card from '../Card';
 
 // Styles
 import * as Styles from './styles';
+import { planos, type IPlano } from '../../data/planos';
+
 const FormPlanos = () => {
-  const [choosedPlan, setChoosedPlan] = useState('infantil');
+  const { setPlano, setPreco, plano } = usePaymentStore();
 
-  const togglePlan = (plan: string) => {
-    setChoosedPlan(plan);
-    console.log(plan);
+  const filteredCards = cards.filter((card) => card.title.toLowerCase().includes(plano.toLowerCase()));
+  const ChoosePlan = (nome: string, preco: number) => {
+    setPlano(nome);
+    setPreco(preco);
   };
-
-  const filteredCards = cards.filter((card) => card.title.toLowerCase().includes(choosedPlan.toLowerCase()));
 
   return (
     <Styles.PlansSection>
       <Styles.PlansSectionContainer>
         <h3>Escolha o Plano</h3>
         <Styles.Tabs>
-          <div
-            className={choosedPlan === 'infantil' ? 'tabs active-tab' : 'tabs'}
-            onClick={() => togglePlan('infantil')}
-          >
-            <img src={choosedPlan === 'infantil' ? RadioChecked : RadioUnChecked} alt="" />
-            <p>Infantil</p>
-          </div>
-          <div className={choosedPlan === 'adulto' ? 'tabs active-tab' : 'tabs'} onClick={() => togglePlan('adulto')}>
-            <img src={choosedPlan === 'adulto' ? RadioChecked : RadioUnChecked} alt="" />
-            <p>Adulto</p>
-          </div>
-          <div
-            className={choosedPlan === 'profissional' ? 'tabs active-tab' : 'tabs'}
-            onClick={() => togglePlan('profissional')}
-          >
-            <img src={choosedPlan === 'profissional' ? RadioChecked : RadioUnChecked} alt="" />
-            <p>Profissional</p>
+          <div role="group" aria-labelledby="my-radio-group" className="group">
+            {planos.map((item: IPlano) => (
+              <label key={item.nome} className={plano === item.nome ? 'tabs active-tab' : 'tabs'}>
+                <Field type="radio" name="plano" value={item.nome} onClick={() => ChoosePlan(item.nome, item.price)} />
+                {item.nome}
+              </label>
+            ))}
           </div>
         </Styles.Tabs>
 

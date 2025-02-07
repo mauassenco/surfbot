@@ -1,49 +1,27 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import validationSchemaBasic, { type formInitialValues } from './schema';
 
 import Locker from '../../assets/images/cadeado.svg';
 
 import CustomInput from '../CustomInput';
 import CustomSelect from '../CustomSelect';
 import FormPagamento from '../FormPagamento';
+import FormPlanos from '../FormPlanos';
+// import FormPlanos from '../FormPlanos';
+
+import estados from '../../data/estados';
+import { planos, IPlano } from '../../data/planos';
 
 // Styles
 import * as Styles from './styles';
-import validationSchemaBasic from './schema';
-import FormPlanos from '../FormPlanos';
 
-const estados = [
-  'Acre',
-  'Alagoas',
-  'Amapá',
-  'Amazonas',
-  'Bahia',
-  'Ceará',
-  'Distrito Federal',
-  'Espirito Santo',
-  'Goiás',
-  'Maranhão',
-  'Mato Grosso',
-  'Mato Grosso do Sul',
-  'Minas Gerais',
-  'Para',
-  'Paraiba',
-  'Pará',
-  'Pernambuco',
-  'Piau',
-  'Rio de Janeiro',
-  'Rio Grande do Norte',
-  'Rio Grande do Sul',
-  'Rondônia',
-  'Roraima',
-  'Santa Catarina',
-  'São Paulo',
-  'Sergipe',
-  'Tocantins',
-];
+import usePaymentStore from '../../store/payment';
 
 const FormMatricula = () => {
-  const initialValues = {
+  const { plano, pagamento, preco } = usePaymentStore();
+
+  const initialValues: formInitialValues = {
     nome: '',
     email: '',
     cpf: '',
@@ -55,13 +33,20 @@ const FormMatricula = () => {
     data_de_expedicao_ano: '',
     numero_do_cartao: '',
     codigo_do_cartao: '',
+    plano: 'infantil',
+    pagamento: 'cartao',
   };
 
   const handleSubmit = (
     values: Yup.InferType<typeof validationSchemaBasic>,
     { resetForm }: { resetForm: () => void },
   ) => {
-    console.log(values);
+    const preco = planos.find((plano: IPlano) => plano.nome === values.plano)?.price;
+    const payload = {
+      ...values,
+      preco,
+    };
+    console.log(payload);
     resetForm();
   };
 
@@ -97,7 +82,10 @@ const FormMatricula = () => {
             </Styles.DoubleInput>
             <FormPagamento />
             <Styles.FormFooter>
-              <p>Seu cartão será debitado em R$ 49,00</p>
+              <p>
+                Seu {pagamento} será debitado em {`R$ ${preco},00`} no plano {plano}
+              </p>
+
               <button className="button" type="submit">
                 REALIZAR MATRÍCULA
               </button>
