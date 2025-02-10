@@ -1,4 +1,4 @@
-import Banner from '../components/Banner';
+import Banner from '../sections/Banner';
 import FormMatricula from '../components/FormMatricula';
 
 const Matricula = () => {

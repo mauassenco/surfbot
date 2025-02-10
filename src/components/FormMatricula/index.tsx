@@ -8,7 +8,6 @@ import CustomInput from '../CustomInput';
 import CustomSelect from '../CustomSelect';
 import FormPagamento from '../FormPagamento';
 import FormPlanos from '../FormPlanos';
-// import FormPlanos from '../FormPlanos';
 
 import estados from '../../data/estados';
 import { planos, IPlano } from '../../data/planos';
@@ -19,11 +18,11 @@ import * as Styles from './styles';
 import usePaymentStore from '../../store/payment';
 
 const FormMatricula = () => {
-  const { plano, pagamento, preco } = usePaymentStore();
+  const { plano, pagamento, preco, email, setPlano, setPagamento } = usePaymentStore();
 
   const initialValues: formInitialValues = {
     nome: '',
-    email: '',
+    email: email,
     cpf: '',
     endereco: '',
     estado: '',
@@ -33,7 +32,7 @@ const FormMatricula = () => {
     data_de_expedicao_ano: '',
     numero_do_cartao: '',
     codigo_do_cartao: '',
-    plano: 'infantil',
+    plano: plano,
     pagamento: 'cartao',
   };
 
@@ -47,7 +46,10 @@ const FormMatricula = () => {
       preco,
     };
     console.log(payload);
+
     resetForm();
+    setPlano('infantil');
+    setPagamento('cartao');
   };
 
   return (

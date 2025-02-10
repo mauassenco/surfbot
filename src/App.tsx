@@ -7,8 +7,8 @@ import Theme from './Themes';
 import Home from './pages/Home';
 import Matricula from './pages/Matricula';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
 
 function App() {
   return (

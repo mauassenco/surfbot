@@ -12,7 +12,8 @@ export interface formInitialValues {
   data_de_expedicao_ano: string;
   numero_do_cartao: string;
   codigo_do_cartao: string;
-  plano: 'infantil' | 'adulto' | 'profissional';
+  // plano: 'infantil' | 'adulto' | 'profissional';
+  plano: string;
   pagamento: 'cartao' | 'boleto';
 }
 
@@ -28,7 +29,8 @@ const validationSchemaBasic = Yup.object().shape({
   data_de_expedicao_ano: Yup.string().min(4, 'Ano com 4 digitos'),
   numero_do_cartao: Yup.string().min(12, 'Número do cartão deve ter no mínimo 12 caracteres'),
   codigo_do_cartao: Yup.string().min(3, 'Número do cartão deve ter no mínimo 12 caracteres'),
-  plano: Yup.string().oneOf(['infantil', 'adulto', 'profissional']),
+  // plano: Yup.string().oneOf(['infantil', 'adulto', 'profissional']),
+  plano: Yup.string(),
   pagamento: Yup.string().oneOf(['cartao', 'boleto']),
 });
 

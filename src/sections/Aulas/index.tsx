@@ -1,6 +1,6 @@
 import { HashLink } from 'react-router-hash-link';
 import Waves from '../../assets/images/ondas.svg';
-import Card from '../Card';
+import Card from '../../components/Card';
 import cards from '../../data/cards';
 // Styles
 import * as Styles from './styles';
